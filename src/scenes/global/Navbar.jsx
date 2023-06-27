@@ -57,38 +57,23 @@ i   ndex = "1"
           columnGap = "20px"
           z-index = "2"
           >
-           <iconButton sx = {{color: "black"}}>
+           <IconButton sx = {{color: "black"}}>
             <SearchOutlined />
-           </iconButton>
+           </IconButton>
 
-           <iconButton sx = {{color: "black"}}>
+           <IconButton sx = {{color: "black"}}>
             <PersonOutline />
-           </iconButton>
+           </IconButton>
 
-           <Badge
-           badgeContent = {cart.length}
-           color = "red"
-           invisible = {cart.length === 0}
-           sx = {{ "& .MuiBadge": {
-             right: 5,
-             top: 5,
-             padding: "0 4px",
-             height: "14p",
-             minWidth: "13px",
-           },
-        }}
            
-           >
-           <iconButton sx = {{color: "black"}}
+           <IconButton sx = {{color: "black"}}
            onClick = {() => dispatch(setIsCartOpen({}))}>
             <ShoppingBagOutlined />
-           </iconButton>
-           </Badge>
+           </IconButton>
 
-
-           <iconButton sx = {{color: "black"}}>
+           <IconButton sx = {{color: "black"}}>
             <MenuOutlined />
-           </iconButton>
+           </IconButton>
             
           </Box>
 
