@@ -1,5 +1,5 @@
 import {Box, Button, Divider, IconButton, Typography} from "@mui/material";
-import { UseSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -114,9 +114,11 @@ const CartMenu = () => {
 
                             </Box>
 
+                            <Typography fontWeight = "bold"> {item.attributes.price}</Typography>
+
                           </FlexBox>
 
-                          <Typography fontWeight = "bold"> {item.attributes.price}</Typography>
+                          
                      </Box>
                         
                         </FlexBox>   
@@ -124,7 +126,24 @@ const CartMenu = () => {
                 </Box>
             ))}
          </Box>
+              
+             {/*actions*/}
 
+             <Box m = "20px 0">
+                <FlexBox m = "20px 0">
+                    <Typography fontWeight = "bold"> SUBTOTAL</Typography>
+                    <Typography fontWeight = "bold"> ${totalPrice}</Typography>
+                </FlexBox>
+                <Button sx = {{ backgroundColor: "blue", color: "white", borderRadius: 0, minWidth: "100%", 
+            padding: "20px 40px", m:"20px 0"}}
+            onClick = {() => {
+                navigate("/checkout");
+                dispatch(setIsCartOpen({}));
+            } }
+            >
+                    CHECKOUT
+                </Button>
+             </Box>
 
 
 
