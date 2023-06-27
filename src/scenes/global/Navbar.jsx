@@ -65,12 +65,26 @@ i   ndex = "1"
             <PersonOutline />
            </IconButton>
 
-           
+           <Badge
+
+           badgeContent = {cart.length}
+           color = "secondary"
+           invisible = {cart.length === 0}
+           sx = {{
+            "& .MuiBadge-badge": {
+                right:5,
+                top: 5,
+                padding: "0 4px",
+                height: "14px",
+                mindWidth: "13px",
+            },
+           }}
+           >
            <IconButton sx = {{color: "black"}}
            onClick = {() => dispatch(setIsCartOpen({}))}>
             <ShoppingBagOutlined />
            </IconButton>
-
+        </Badge>
            <IconButton sx = {{color: "black"}}>
             <MenuOutlined />
            </IconButton>
