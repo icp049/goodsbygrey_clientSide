@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import styled from "emotion/styled";
+import styled from "@emotion/styled";
 
 import {
 decreaseCount,
@@ -58,7 +58,7 @@ const CartMenu = () => {
         >{}
          <FlexBox mb = "15px">
             <Typography variat = "h3"> SHOPPING BAG ({cart.length})</Typography>
-            <IconButton onCLick = {() => dispatch(setIsCartOpen({}))}>
+            <IconButton onClick = {() => dispatch(setIsCartOpen({}))}>
                 <CloseIcon/>
             </IconButton>
          </FlexBox>
