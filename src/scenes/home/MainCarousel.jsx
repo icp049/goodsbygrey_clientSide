@@ -19,6 +19,8 @@ r.keys().reduce((acc,item) => {
 
 
 const MainCarousel = () => {
+
+    
 const isNonMobile = useMediaQuery("min-widthL600px");
 return(
     <Carousel>
