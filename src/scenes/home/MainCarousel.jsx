@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Box, Typography, IconButton, useMediaQuery } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -16,7 +16,7 @@ const heroTextureImports = importAll(
 );
 
 const MainCarousel = () => {
-  const isNonMobile = useMediaQuery("min-width:600px");
+  const isNonMobile = useMediaQuery("(min-width:600px");
   return (
     <Carousel
       infiniteLoop={true}
@@ -78,10 +78,10 @@ const MainCarousel = () => {
             right = {isNonMobile ? undefined : "0"}
             margin = {isNonMobile ? undefined : "0 auto"}
             maxWidth = {isNonMobile ? undefined : "240px"}
-
-
             >
-
+            <Typography color = "white"> NEW RELEASE </Typography>
+            <Typography variant = "h1"> NEW RELEASE </Typography>
+            <Typography fontWeight = "bold"> NEW RELEASE </Typography>
             </Box>
         </Box>
      ))}
