@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 import { IconButton, Box, Typography, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material";
+import RemoveIcon from "@mui/icons-material/Remove"
 import {addToCart} from "../state";
 import {useNavigate} from "react-router-dom";
 
@@ -46,7 +46,7 @@ const Item = ({item, width}) => {
             <Box display = "flex" justifyContent = "space-between">
                 <Box display = "flex" alignItems = "center" backgroundColor = "white" borderRadius = "3px">
                 <IconButton
-                                    onClick = {() => setCount(math.max(count -1, 1))}
+                                    onClick = {() => setCount(Math.max(count -1, 1))}
                                     >
                                         <RemoveIcon />
                                  </IconButton>
