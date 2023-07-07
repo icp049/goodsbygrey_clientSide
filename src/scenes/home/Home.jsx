@@ -9,7 +9,7 @@ import ShoppingList from "./ShoppingList";
 const Home = () => {
     return(<div className = "home" >
     
-    <MainCarousel/>
+  
     <ShoppingList />
     </div>
     );
