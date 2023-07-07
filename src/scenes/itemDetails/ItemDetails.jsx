@@ -4,10 +4,10 @@ import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Item from "../../components/Item";
-import {addToCart} from "../../state";
+import { addToCart } from "../../state";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -44,6 +44,24 @@ const ItemDetails = () => {
     getItems();
   }, [itemId]); //eslint-disable-line react-hooks/exhaustive-deps
 
+  const goToPrevItem = () => {
+    const currentIndex = items.findIndex((i) => i.id === itemId);
+    const prevItemIndex = currentIndex - 1;
+    if (prevItemIndex >= 0) {
+      const prevItemId = items[prevItemIndex].id;
+      window.location.href = `/item/${prevItemId}`;
+    }
+  };
+
+  const goToNextItem = () => {
+    const currentIndex = items.findIndex((i) => i.id === itemId);
+    const nextItemIndex = currentIndex + 1;
+    if (nextItemIndex < items.length) {
+      const nextItemId = items[nextItemIndex].id;
+      window.location.href = `/item/${nextItemId}`;
+    }
+  };
+
   return (
     <Box width="80%" m="80px auto">
       <Box display="flex" flexWrap="wrap" columnGap="40px">
@@ -59,8 +77,15 @@ const ItemDetails = () => {
 
         <Box flex="1 1 50%" mb="40px">
           <Box display="flex" justifyContent="space-between">
-            <Box>Home?item</Box>
-            <Box>Prev next</Box>
+            <Box component={Link} to="/">Home</Box>
+            <Box>
+              <IconButton onClick={goToPrevItem} disabled={itemId === items[0]?.id}>
+                Prev
+              </IconButton>
+              <IconButton onClick={goToNextItem} disabled={itemId === items[items.length - 1]?.id}>
+                Next
+              </IconButton>
+            </Box>
           </Box>
 
           <Box m="65px 0 25px 0">

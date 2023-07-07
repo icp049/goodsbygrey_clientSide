@@ -61,9 +61,7 @@ i   ndex = "1"
             <SearchOutlined />
            </IconButton>
 
-           <IconButton sx = {{color: "black"}}>
-            <PersonOutline />
-           </IconButton>
+         
 
            <Badge
 
@@ -85,9 +83,7 @@ i   ndex = "1"
             <ShoppingBagOutlined />
            </IconButton>
         </Badge>
-           <IconButton sx = {{color: "black"}}>
-            <MenuOutlined />
-           </IconButton>
+           
             
           </Box>
 
