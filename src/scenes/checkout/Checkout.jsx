@@ -81,8 +81,8 @@ const checkoutSchema = [
         zipCode: yup.string().when("isSameAddress", {
           is: false,
           then: yup.string().required("required")
-        })
-      })
+        }),
+      }),
     }),
     yup.object().shape({
       email: yup.string().required("required"),
