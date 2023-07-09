@@ -82,7 +82,7 @@ const CartMenu = () => {
                            <Typography fontWeight = "bold">
                             {item.attributes.name}
                            </Typography>
-                           <IconButton onClick  ={()=> dispatch(removeFromCart({id: item}))}>
+                           <IconButton onClick  ={()=> dispatch(removeFromCart({id: item.id}))}>
                             <CloseIcon/>
 
                             </IconButton>
