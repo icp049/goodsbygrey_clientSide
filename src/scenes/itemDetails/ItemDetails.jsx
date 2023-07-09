@@ -138,14 +138,20 @@ const ItemDetails = () => {
             <IconButton onClick={() => setCount(count + 1)}>
               <AddIcon />
             </IconButton>
+
+            <Button
+                onClick = {()=> {dispatch(addToCart({item: {...item, count}}));
+                }}
+                sx = {{backgroundColor: "blue", color: "white"}}>
+                    Add to Cart
+                </Button>
           </Box>
 
           <Box>
             <Box m="20px 0 5px 0" display="flex">
-              <FavoriteBorderOutlinedIcon />
-              <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
+             
             </Box>
-            <Typography>CATEGORIES: {item?.attributes?.category}</Typography>
+           
           </Box>
         </Box>
       </Box>
