@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { useParams, Link } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -16,6 +18,7 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [items, setItems] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -28,6 +31,7 @@ const ItemDetails = () => {
     );
     const itemJson = await itemResponse.json();
     setItem(itemJson.data);
+    setCurrentImageIndex(0); // Reset the image index to the first image
   }
 
   async function getItems() {
@@ -43,6 +47,18 @@ const ItemDetails = () => {
     getItem();
     getItems();
   }, [itemId]); //eslint-disable-line react-hooks/exhaustive-deps
+
+  const goToPrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : items.length - 1
+    );
+  };
+
+  const goToNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex < items.length - 1 ? prevIndex + 1 : 0
+    );
+  };
 
   const goToPrevItem = () => {
     const currentIndex = items.findIndex((i) => i.id === itemId);
@@ -73,6 +89,16 @@ const ItemDetails = () => {
             src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
+          {items.length > 1 && (
+            <Box display="flex" justifyContent="center" mt="10px">
+              <IconButton onClick={goToPrevImage}>
+                <ArrowBackIcon />
+              </IconButton>
+              <IconButton onClick={goToNextImage}>
+                <ArrowForwardIcon />
+              </IconButton>
+            </Box>
+          )}
         </Box>
 
         <Box flex="1 1 50%" mb="40px">
