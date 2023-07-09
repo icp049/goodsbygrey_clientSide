@@ -10,7 +10,7 @@ import {loadStripe} from "@stripe/stripe-js";
 
 
 const stripePromise = loadStripe(
-    ""
+    "pk_test_51N3a8FAxd77mjr8sxepRd4ToCSa98L4F7WE8KfnwStsD1N0NQpDIizKOemfg4kjRp4kp0Rf38s0pfI1RZS6Jasu200fX3eS7lb"
 );
 
 const initialValues = {
