@@ -214,7 +214,6 @@ const Checkout = () => {
                 <Button
                   fullWidth
                   type="submit"
-                  color="black"
                   variant="contained"
                   sx={{
                     backgroundColor: "pink",

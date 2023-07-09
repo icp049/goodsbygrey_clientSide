@@ -1,21 +1,26 @@
-import React from "react";
-import { useMediaQuery, TextField, Box } from "@mui/material";
 import { getIn } from "formik";
+import { Box } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const AddressForm = ({
   type,
   values,
-  errors,
   touched,
+  errors,
   handleBlur,
-  handleChange
+  handleChange,
 }) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
+  // these functions allow for better code readability
   const formattedName = (field) => `${type}.${field}`;
 
   const formattedError = (field) =>
-    Boolean(getIn(touched, formattedName(field)) && getIn(errors, formattedName(field)));
+    Boolean(
+      getIn(touched, formattedName(field)) &&
+        getIn(errors, formattedName(field))
+    );
 
   const formattedHelper = (field) =>
     getIn(touched, formattedName(field)) && getIn(errors, formattedName(field));
@@ -25,7 +30,9 @@ const AddressForm = ({
       display="grid"
       gap="15px"
       gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-      sx={{ "& > div": { gridColumn: isNonMobile ? undefined : "span 4" } }}
+      sx={{
+        "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+      }}
     >
       <TextField
         fullWidth
@@ -39,7 +46,6 @@ const AddressForm = ({
         helperText={formattedHelper("firstName")}
         sx={{ gridColumn: "span 2" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -52,7 +58,6 @@ const AddressForm = ({
         helperText={formattedHelper("lastName")}
         sx={{ gridColumn: "span 2" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -65,7 +70,6 @@ const AddressForm = ({
         helperText={formattedHelper("country")}
         sx={{ gridColumn: "span 4" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -78,7 +82,6 @@ const AddressForm = ({
         helperText={formattedHelper("street1")}
         sx={{ gridColumn: "span 2" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -91,7 +94,6 @@ const AddressForm = ({
         helperText={formattedHelper("street2")}
         sx={{ gridColumn: "span 2" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -104,7 +106,6 @@ const AddressForm = ({
         helperText={formattedHelper("city")}
         sx={{ gridColumn: "span 2" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -115,9 +116,8 @@ const AddressForm = ({
         name={formattedName("state")}
         error={formattedError("state")}
         helperText={formattedHelper("state")}
-        sx={{ gridColumn: "span 1" }}
+        sx={{ gridColumn: "1fr" }}
       />
-
       <TextField
         fullWidth
         type="text"
@@ -128,7 +128,7 @@ const AddressForm = ({
         name={formattedName("zipCode")}
         error={formattedError("zipCode")}
         helperText={formattedHelper("zipCode")}
-        sx={{ gridColumn: "span 2" }}
+        sx={{ gridColumn: "1fr" }}
       />
     </Box>
   );
