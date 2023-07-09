@@ -47,7 +47,7 @@ const Navbar = () => {
             sx = {{ '5:hover' : {cursor: "pointer"}}} 
             color = "blue"
          >
-            ECCOMMER
+            GoodsByGrey
           </Box>
 
 

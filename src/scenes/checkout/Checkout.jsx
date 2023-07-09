@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box, Stepper, Step, StepLabel } from "@mui/material";
-import Button from '@mui/material/Button';
+
 import { Formik } from "formik";
 import * as yup from "yup";
 import Shipping from "./Shipping";
@@ -103,7 +103,7 @@ const Checkout = () => {
     if (isFirstStep && values.shippingAddress.isSameAddress) {
       actions.setFieldValue("shippingAddress", {
         ...values.billingAddress,
-        isSameAddress: true
+        isSameAddress: true,
       });
     }
 
@@ -194,7 +194,7 @@ const Checkout = () => {
                 gap="50px"
               >
                 {!isFirstStep && (
-                  <Button
+                  <button
                     fullWidth
                     color="black"
                     variant="contained"
@@ -208,24 +208,16 @@ const Checkout = () => {
                     onClick={() => setActiveStep(activeStep - 1)}
                   >
                     Back
-                  </Button>
+                  </button>
                 )}
 
-                <Button
+                <button
                   fullWidth
                   type="submit"
                   
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "pink",
-                    boxShadow: "none",
-                    color: "white",
-                    borderRadius: 0,
-                    padding: "15px 40px"
-                  }}
                 >
                   {isFirstStep ? "Next" : "Place Order"}
-                </Button>
+                </button>
               </Box>
             </form>
           )}
