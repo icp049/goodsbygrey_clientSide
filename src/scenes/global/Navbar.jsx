@@ -32,7 +32,7 @@ const Navbar = () => {
    position = "fixed"
     top = "0"
     left = "0"
-i   ndex = "1"
+ zIndex = "2"
     >
 
         <Box // inner box

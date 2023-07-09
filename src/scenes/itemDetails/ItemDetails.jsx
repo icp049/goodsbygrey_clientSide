@@ -10,6 +10,7 @@ import { useParams, Link } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Item from "../../components/Item";
 import { addToCart } from "../../state";
+import DetailedItem from "../../components/DetailedItem";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const ItemDetails = () => {
 
   async function getItem() {
     const itemResponse = await fetch(
-      `http://localhost:1337/api/items/${itemId}?populate=image`,
+      `http://localhost:1337/api/items/${itemId}?populate=detailedImage`,
       { method: "GET" }
     );
     const itemJson = await itemResponse.json();
@@ -36,7 +37,7 @@ const ItemDetails = () => {
 
   async function getItems() {
     const response = await fetch(
-      "http://localhost:1337/api/items?populate=image",
+      "http://localhost:1337/api/items?populate=detailedImage",
       { method: "GET" }
     );
     const itemsJson = await response.json();
@@ -86,7 +87,7 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`http://localhost:1337${item?.detailedImage?.[currentImageIndex]?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
           {items.length > 1 && (
@@ -175,7 +176,8 @@ const ItemDetails = () => {
           justifyContent="space-between"
         >
           {items.slice(0, 4).map((item, i) => (
-            <Item key={`${item.name}-${i}`} item={item} />
+            <DetailedItem key={`${item.name}-${i}`} item={item} />
+
           ))}
         </Box>
       </Box>
