@@ -35,7 +35,7 @@ const AddressForm = ({
       }}
     >
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="First Name"
         onBlur={handleBlur}
@@ -47,7 +47,7 @@ const AddressForm = ({
         sx={{ gridColumn: "span 2" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="Last Name"
         onBlur={handleBlur}
@@ -59,7 +59,7 @@ const AddressForm = ({
         sx={{ gridColumn: "span 2" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="Country"
         onBlur={handleBlur}
@@ -71,7 +71,7 @@ const AddressForm = ({
         sx={{ gridColumn: "span 4" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="Street Address"
         onBlur={handleBlur}
@@ -83,7 +83,7 @@ const AddressForm = ({
         sx={{ gridColumn: "span 2" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="Street Address 2 (optional)"
         onBlur={handleBlur}
@@ -95,7 +95,7 @@ const AddressForm = ({
         sx={{ gridColumn: "span 2" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="City"
         onBlur={handleBlur}
@@ -107,7 +107,7 @@ const AddressForm = ({
         sx={{ gridColumn: "span 2" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="State"
         onBlur={handleBlur}
@@ -119,7 +119,7 @@ const AddressForm = ({
         sx={{ gridColumn: "1fr" }}
       />
       <TextField
-        fullWidth
+        fullwidth
         type="text"
         label="Zip Code"
         onBlur={handleBlur}
