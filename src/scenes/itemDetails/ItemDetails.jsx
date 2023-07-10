@@ -12,6 +12,7 @@ import Item from "../../components/Item";
 import { addToCart } from "../../state";
 import DetailedItem from "../../components/DetailedItem";
 
+
 const ItemDetails = () => {
   const dispatch = useDispatch();
   const { itemId } = useParams();
@@ -24,6 +25,8 @@ const ItemDetails = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+
 
   async function getItem() {
     const itemResponse = await fetch(
@@ -77,6 +80,20 @@ const ItemDetails = () => {
       const nextItemId = items[nextItemIndex].id;
       window.location.href = `/item/${nextItemId}`;
     }
+  };
+
+
+  
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      item: {
+        ...item,
+        count,
+        image: item.attributes.image // Use the image from the Item component
+      }
+    };
+    dispatch(addToCart(cartItem));
   };
 
   return (
@@ -139,12 +156,9 @@ const ItemDetails = () => {
               <AddIcon />
             </IconButton>
 
-            <Button
-                onClick = {()=> {dispatch(addToCart({item: {...item, count}}));
-                }}
-                sx = {{backgroundColor: "blue", color: "white"}}>
-                    Add to Cart
-                </Button>
+            <Button onClick={handleAddToCart} sx={{ backgroundColor: "blue", color: "white" }}>
+          Add to Cart
+        </Button>
           </Box>
 
           <Box>
