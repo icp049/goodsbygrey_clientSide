@@ -7,10 +7,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { useParams, Link } from "react-router-dom";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Item from "../../components/Item";
 import { addToCart } from "../../state";
-import DetailedItem from "../../components/DetailedItem";
+
 
 
 const ItemDetails = () => {
@@ -30,7 +29,7 @@ const ItemDetails = () => {
 
   async function getItem() {
     const itemResponse = await fetch(
-      `http://localhost:1337/api/items/${itemId}?populate=detailedImage`,
+      `http://localhost:1337/api/items/${itemId}?populate=image`,
       { method: "GET" }
     );
     const itemJson = await itemResponse.json();
@@ -40,7 +39,7 @@ const ItemDetails = () => {
 
   async function getItems() {
     const response = await fetch(
-      "http://localhost:1337/api/items?populate=detailedImage",
+      "http://localhost:1337/api/items?populate=image",
       { method: "GET" }
     );
     const itemsJson = await response.json();
@@ -104,7 +103,7 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`http://localhost:1337${item?.detailedImage?.[currentImageIndex]?.formats?.medium?.url}`}
+            src={`http://localhost:1337${item?.attributes?.detailedImage?.[currentImageIndex]?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
           {items.length > 1 && (
@@ -196,7 +195,7 @@ const ItemDetails = () => {
           justifyContent="space-between"
         >
           {items.slice(0, 4).map((item, i) => (
-            <DetailedItem key={`${item.name}-${i}`} item={item} />
+            <Item key={`${item.name}-${i}`} item={item} />
 
           ))}
         </Box>

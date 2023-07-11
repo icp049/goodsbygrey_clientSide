@@ -23,16 +23,10 @@ const Item = ({item, width}) => {
     },
    } = image;
 
-   const handleAddToCart = () => {
-    const cartItem = {
-      item: {
-        ...item,
-        count,
-        image: url, // Use the url from the Item component
-      },
-    };
-    dispatch(addToCart(cartItem));
-  };
+
+   
+
+   
 
    return (
     <Box width = {width}>
