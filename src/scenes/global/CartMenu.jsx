@@ -34,7 +34,7 @@ const CartMenu = () => {
   return (
     <Box
     display = {isCartOpen ? "block" : "none"}
-    backgroundColor = "black"
+    backgroundColor = "rgba(0, 0, 0, 0.9)"
     position = "fixed"
     zIndex = {10}
     width = "100%"
@@ -57,7 +57,7 @@ const CartMenu = () => {
         <Box padding = "30px" overflow = "auto" height = "100%"
         >{}
          <FlexBox mb = "15px">
-            <Typography variat = "h3"> SHOPPING BAG ({cart.length})</Typography>
+            <Typography variant = "h5"> SHOPPING BAG ({cart.length})</Typography>
             <IconButton onClick = {() => dispatch(setIsCartOpen({}))}>
                 <CloseIcon/>
             </IconButton>

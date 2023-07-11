@@ -13,9 +13,9 @@ const Welcome = () => {
       <div className="launchcontainer" id="imahe">
         <div className="launchcontainertitle">
           <h1 className="launchcontainerh1">GoodsbyGrey.</h1>
-          <h5 className="launchcontainerh5">shop shop</h5>
+          <h5 className="launchcontainerh5">Tokyo, Japan</h5>
           <button className="launchcontainerbutton" >
-            Explore
+           SHOP
           </button>
         </div>
       </div>
