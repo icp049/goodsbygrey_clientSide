@@ -7,7 +7,7 @@ import {
     SearchOutlined,
    
  } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { setIsCartOpen } from '../../state';
 
@@ -58,7 +58,9 @@ const Navbar = () => {
           z-index = "2"
           >
 
-
+            
+          <Link to="welcome">Home</Link>
+          <Link to="/about">About</Link>
             
            <IconButton sx = {{color: "black"}}>
             <SearchOutlined />
