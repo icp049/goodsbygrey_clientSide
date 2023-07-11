@@ -57,6 +57,9 @@ const Navbar = () => {
           columnGap = "20px"
           z-index = "2"
           >
+
+
+            
            <IconButton sx = {{color: "black"}}>
             <SearchOutlined />
            </IconButton>

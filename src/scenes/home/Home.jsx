@@ -1,3 +1,4 @@
+
 import MainCarousel from "./MainCarousel";
 import ShoppingList from "./ShoppingList";
 
@@ -11,6 +12,7 @@ const Home = () => {
     
     <MainCarousel/>
     <ShoppingList />
+  
     </div>
     );
 };

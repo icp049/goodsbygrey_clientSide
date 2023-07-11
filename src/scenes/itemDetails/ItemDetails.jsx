@@ -39,7 +39,7 @@ const ItemDetails = () => {
 
   async function getItems() {
     const response = await fetch(
-      "http://localhost:1337/api/items?populate=image",
+      `http://localhost:1337/api/items?populate=image`,
       { method: "GET" }
     );
     const itemsJson = await response.json();
@@ -51,37 +51,7 @@ const ItemDetails = () => {
     getItems();
   }, [itemId]); //eslint-disable-line react-hooks/exhaustive-deps
 
-  const goToPrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : items.length - 1
-    );
-  };
-
-  const goToNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex < items.length - 1 ? prevIndex + 1 : 0
-    );
-  };
-
-  const goToPrevItem = () => {
-    const currentIndex = items.findIndex((i) => i.id === itemId);
-    const prevItemIndex = currentIndex - 1;
-    if (prevItemIndex >= 0) {
-      const prevItemId = items[prevItemIndex].id;
-      window.location.href = `/item/${prevItemId}`;
-    }
-  };
-
-  const goToNextItem = () => {
-    const currentIndex = items.findIndex((i) => i.id === itemId);
-    const nextItemIndex = currentIndex + 1;
-    if (nextItemIndex < items.length) {
-      const nextItemId = items[nextItemIndex].id;
-      window.location.href = `/item/${nextItemId}`;
-    }
-  };
-
-
+  
   
 
   const handleAddToCart = () => {
@@ -103,32 +73,15 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`http://localhost:1337${item?.attributes?.detailedImage?.[currentImageIndex]?.formats?.medium?.url}`}
+            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
-          {items.length > 1 && (
-            <Box display="flex" justifyContent="center" mt="10px">
-              <IconButton onClick={goToPrevImage}>
-                <ArrowBackIcon />
-              </IconButton>
-              <IconButton onClick={goToNextImage}>
-                <ArrowForwardIcon />
-              </IconButton>
-            </Box>
-          )}
+          
         </Box>
 
         <Box flex="1 1 50%" mb="40px">
           <Box display="flex" justifyContent="space-between">
             <Box component={Link} to="/">Home</Box>
-            <Box>
-              <IconButton onClick={goToPrevItem} disabled={itemId === items[0]?.id}>
-                Prev
-              </IconButton>
-              <IconButton onClick={goToNextItem} disabled={itemId === items[items.length - 1]?.id}>
-                Next
-              </IconButton>
-            </Box>
           </Box>
 
           <Box m="65px 0 25px 0">
@@ -180,7 +133,7 @@ const ItemDetails = () => {
         {value === "description" && (
           <div>{item?.attributes?.longDescription}</div>
         )}
-        {value === "reviews" && <div>reviews</div>}
+        
       </Box>
 
       <Box mt="50px" width="100%">
