@@ -165,8 +165,10 @@ const ItemDetails = () => {
           mt="20px"
           display="flex"
           flexWrap="wrap"
-          columnGap="1.33%"
+          columnGap="1.55%"
           justifyContent="space-between"
+          rowGap="25px" // Add rowGap for vertical spacing
+         
         >
           {items.slice(0, 4).map((item, i) => (
             <Item key={`${item.name}-${i}`} item={item} />
