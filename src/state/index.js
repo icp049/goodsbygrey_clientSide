@@ -15,10 +15,19 @@ export const cartSlice = createSlice({
             state.items = action.payload;
         },
 
-
         addToCart: (state, action) => {
-            state.cart = [...state.cart, action.payload.item];
-        },
+            const newItem = action.payload.item;
+            const existingItemIndex = state.cart.findIndex(
+              (item) => item.id === newItem.id
+            );
+          
+            if (existingItemIndex !== -1) {
+              state.cart[existingItemIndex].count++;
+            } else {
+              state.cart.push(newItem);
+            }
+          },
+          
 
 
         removeFromCart: (state, action) => {
