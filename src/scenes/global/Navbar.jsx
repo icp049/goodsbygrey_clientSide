@@ -61,6 +61,7 @@ const Navbar = () => {
             
           <Link to="welcome">Home</Link>
           <Link to="/about">About</Link>
+          <Link to = "/" >Goods</Link>
             
            <IconButton sx = {{color: "black"}}>
             <SearchOutlined />
