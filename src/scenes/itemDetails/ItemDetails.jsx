@@ -6,6 +6,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+
+
 import { useParams, Link } from "react-router-dom";
 import Item from "../../components/Item";
 import { addToCart } from "../../state";
@@ -66,7 +68,28 @@ const ItemDetails = () => {
   };
 
   return (
+    
     <Box width="80%" m="80px auto">
+      <Box display="flex" justifyContent="space-between" mb = "20px">
+  <Button
+    component={Link}
+    to="/"
+    variant="contained"
+    color="primary"
+   
+    startIcon={<ArrowBackIcon />}
+    sx={{
+      "&:hover": {
+        backgroundColor: "darkblue",
+      },
+    }}
+  >
+    Go back to Home
+  </Button>
+</Box>
+
+
+
       <Box display="flex" flexWrap="wrap" columnGap="40px">
         <Box flex="1 1 40%" mb="40px">
           <img
@@ -80,9 +103,7 @@ const ItemDetails = () => {
         </Box>
 
         <Box flex="1 1 50%" mb="40px">
-          <Box display="flex" justifyContent="space-between">
-            <Box component={Link} to="/">Home</Box>
-          </Box>
+         
 
           <Box m="65px 0 25px 0">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
@@ -151,8 +172,15 @@ const ItemDetails = () => {
             <Item key={`${item.name}-${i}`} item={item} />
 
           ))}
+          
         </Box>
       </Box>
+
+
+
+
+
+
     </Box>
   );
 };
