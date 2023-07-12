@@ -161,3 +161,5 @@ const CartMenu = () => {
 };
 
 export default CartMenu;
+
+
