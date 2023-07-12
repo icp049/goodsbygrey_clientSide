@@ -144,10 +144,13 @@ const Checkout = () => {
     <Box width="80%" m="100px auto">
       <Stepper activeStep={activeStep} sx={{ m: "20px 0" }}>
         <Step>
-          <StepLabel>Billing</StepLabel>
+          <StepLabel>Billing/Shipping</StepLabel>
         </Step>
         <Step>
-          <StepLabel>Payment</StepLabel>
+          <StepLabel>Contact Information</StepLabel>
+        </Step>
+        <Step>
+          <StepLabel>Order Summary</StepLabel>
         </Step>
       </Stepper>
 
