@@ -1,7 +1,15 @@
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import OrderSummary from "./OrderSummary";
+import { useSelector } from "react-redux";
 
 const Payment = ({ values, touched, errors, handleBlur, handleChange }) => {
+  const cart = useSelector((state) => state.cart.cart); // Assuming you have access to the cart state using useSelector
+  const totalPrice = cart.reduce((total, item) => {
+    return total + item.count * item.attributes.price;
+  }, 0);
+
   return (
     <Box m="30px 0">
       {/* CONTACT INFO */}
@@ -33,6 +41,14 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange }) => {
           helperText={touched.phoneNumber && errors.phoneNumber}
           sx={{ gridColumn: "span 4" }}
         />
+      </Box>
+
+      {/* ORDER SUMMARY */}
+      <Box mt="30px">
+        <Typography sx={{ mb: "15px" }} fontSize="18px">
+          Order Summary
+        </Typography>
+        <OrderSummary cart={cart} totalPrice={totalPrice} />
       </Box>
     </Box>
   );

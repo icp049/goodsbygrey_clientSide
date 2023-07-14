@@ -1,29 +1,42 @@
-import React, { useState, useEffect } from "react";
-import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
-import CloseIcon from "@mui/icons-material/Close";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import styled from "@emotion/styled";
+import React from "react";
+import { Box, Typography, Divider } from "@mui/material";
 
-import {
-  decreaseCount,
-  increaseCount,
-  removeFromCart,
-  
-} from "../../state";
+const OrderSummary = ({ cart, totalPrice }) => {
+  // Calculate tax
+  const tax = totalPrice * 0.06;
+  // Calculate total price including tax
+  const totalPriceWithTax = totalPrice + tax;
 
-import { useNavigate } from "react-router-dom";
+  return (
+    <Box>
+      <Typography variant="h5">Order Summary</Typography>
 
+      {cart.map((item) => (
+        <Box key={`${item.attributes.name} - ${item.id}`}>
+          <Box display="flex" justifyContent="space-between" alignItems="center" p="15px 0">
+            <Typography>{item.attributes.name}</Typography>
+            <Typography>{item.count}</Typography>
+          </Box>
+          <Divider />
+        </Box>
+      ))}
 
+      <Box m="20px 0" display="flex" justifyContent="space-between" alignItems="center">
+        <Typography fontWeight="bold">Subtotal:</Typography>
+        <Typography fontWeight="bold" ml="5px">${totalPrice}</Typography>
+      </Box>
 
+      <Box m="20px 0" display="flex" justifyContent="space-between" alignItems="center">
+        <Typography fontWeight="bold">Tax (6%):</Typography>
+        <Typography fontWeight="bold" ml="5px">${tax}</Typography>
+      </Box>
 
-const OrderSummary = () => {
-
-    return (
-<div> AHAHAHAHAHA</div>
-
-    );
+      <Box m="20px 0" display="flex" justifyContent="space-between" alignItems="center">
+        <Typography fontWeight="bold">Total:</Typography>
+        <Typography fontWeight="bold" ml="5px">${totalPriceWithTax}</Typography>
+      </Box>
+    </Box>
+  );
 };
 
 export default OrderSummary;
