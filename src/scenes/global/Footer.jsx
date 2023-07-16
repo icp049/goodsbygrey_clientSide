@@ -1,4 +1,4 @@
-import {Box, Typography} from 'mui/material';
+import {Box, Typography} from '@mui/material';
 
 
 
@@ -54,7 +54,7 @@ const Footer = () => {
                 </Box>
 
 
-                <Box width = "clamp(20%, 30%,40%)" >
+                <Box width = "clamp(20%, 25%,30%)" >
                     <Typography variant = "h4" fontWeight = "bold" mb = "30px">
                         Categories
                     </Typography>
