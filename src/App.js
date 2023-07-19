@@ -43,6 +43,7 @@ function App() {
        </Routes>
       
        <CartMenu />
+       <Footer/>
        
       </BrowserRouter>
     </div>

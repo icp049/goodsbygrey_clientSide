@@ -1,4 +1,5 @@
 import {Box, Typography} from '@mui/material';
+import { useLocation } from "react-router-dom";
 
 
 
@@ -7,6 +8,11 @@ import {Box, Typography} from '@mui/material';
 
 
 const Footer = () => {
+
+    const { pathname } = useLocation();
+    console.log(pathname);
+  // you can check a more conditions here
+   if (pathname === "/welcome") return null;
 
     return(
         <Box
