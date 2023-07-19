@@ -15,7 +15,7 @@ const Footer = () => {
           <Grid item xs={12} sm={6} md={3}>
             <Box>
               <Typography variant="h4" fontWeight="bold" mb="20px" color="black">
-                NYAHA
+                GoodsByGrey
               </Typography>
               <div>
                 Tokyo, Japan
