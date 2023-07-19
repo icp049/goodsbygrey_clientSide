@@ -15,7 +15,8 @@ const OrderSummary = ({ cart, totalPrice }) => {
         <Box key={`${item.attributes.name} - ${item.id}`}>
           <Box display="flex" justifyContent="space-between" alignItems="center" p="15px 0">
             <Typography>{item.attributes.name}</Typography>
-            <Typography>{item.count}</Typography>
+            <Typography>X {item.count}</Typography>
+            <Typography>$ {item.attributes.price} </Typography>
           </Box>
           <Divider />
         </Box>
