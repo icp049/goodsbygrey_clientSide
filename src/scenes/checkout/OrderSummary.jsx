@@ -3,7 +3,7 @@ import { Box, Typography, Divider } from "@mui/material";
 
 const OrderSummary = ({ cart, totalPrice }) => {
   // Calculate tax
-  const tax = totalPrice * 0.06;
+  const tax = totalPrice * 0.09; //edit with the tax of your area
   // Calculate total price including tax
   const totalPriceWithTax = totalPrice + tax;
 
@@ -28,7 +28,7 @@ const OrderSummary = ({ cart, totalPrice }) => {
       </Box>
 
       <Box m="20px 0" display="flex" justifyContent="space-between" alignItems="center">
-        <Typography fontWeight="bold">Tax (6%):</Typography>
+        <Typography fontWeight="bold">Tax(6%):</Typography>
         <Typography fontWeight="bold" ml="5px">${tax}</Typography>
       </Box>
 
